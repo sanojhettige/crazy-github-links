@@ -15,7 +15,8 @@ const Layout = (props: PropsWithChildren<Props>) => {
         <title>{props.title}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/311b26d0ee.js"></script>
       </Head>
       <header>
         <Navbar />

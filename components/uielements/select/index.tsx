@@ -3,12 +3,12 @@ interface Props {
     rounded?: boolean,
     onChange?: (e) => void,
     value?: string,
-    options: option[]
+    options: option[],
   }
   
   interface option {
     id: string,
-    title: string,
+    title: any,
   }
   
   const Select = (

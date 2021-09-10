@@ -6,6 +6,7 @@ interface Props {
   isTransparent?: boolean,
   alt?: string,
   title?: string,
+  className?: string,
   }
   
   const Avatar = (
@@ -18,7 +19,7 @@ interface Props {
   } : Props,) => {
   return (
     <div className="w-full">
-        <img className={`inline-block h-20 w-20 ${rounded && 'rounded-full'} ring-2 ${!isTransparent && 'ring-white bg-white-500'}`} src={image} {...otherProps}/>
+        <img className={`inline-block h-20 w-20 ${rounded && 'rounded-full'} ring-2 ${!isTransparent && 'ring-white bg-white'}`} src={image} {...otherProps}/>
         </div>
   )
   }

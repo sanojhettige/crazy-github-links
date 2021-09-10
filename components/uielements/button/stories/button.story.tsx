@@ -15,8 +15,8 @@ const Template = args => <Cmp {...args}>{args.buttonText}</Cmp>;
 export const Button = Template.bind({});
 Button.args = {
     type: 'primary',
-  prefixIcon: '',
-  suffixIcon: '',
+  prefixIcon: 'coffe',
+  suffixIcon: 'coffe',
   size: 'medium',
   variant: 'contained',
   fullwith: false,
