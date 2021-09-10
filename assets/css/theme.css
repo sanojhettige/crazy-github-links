@@ -1,7 +1,11 @@
 :root {
-    --color-black: '#000000';
-    --color-white: '#FFFFFF';
+    --color-black: #000000;
+    --color-white: #FFFFFF;
     --color-primary: #1A2639;
     --color-secondary: #58A6FF;
-    --color-github: '#171515',
+    --color-github: #171515;
+    --color-slate-gray: #607d8b;
+    --color-shark: #212121;
+    --color-sunset-orange: #f44336;
+    --color-bubbles: #e0f7fa;
   }
