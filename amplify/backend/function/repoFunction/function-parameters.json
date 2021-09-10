@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "storage": {
+      "githublinks": [
+        "create",
+        "read",
+        "update"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

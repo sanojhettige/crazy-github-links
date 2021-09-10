@@ -1,0 +1,35 @@
+{
+  "paths": [
+    {
+      "name": "/repos",
+      "lambdaFunction": "repoFunction",
+      "privacy": {
+        "open": true
+      },
+      "policyResourceName": "/repos"
+    }
+  ],
+  "resourceName": "reposApi",
+  "apiName": "reposApi",
+  "functionArns": [
+    {
+      "lambdaFunction": "repoFunction"
+    }
+  ],
+  "privacy": {
+    "auth": 0,
+    "unauth": 0,
+    "authRoleName": "amplify-githubcrazylinks-dev-141318-authRole",
+    "unAuthRoleName": "amplify-githubcrazylinks-dev-141318-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "repoFunction",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    }
+  ]
+}

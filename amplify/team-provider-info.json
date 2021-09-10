@@ -1,15 +1,23 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-githublinks-dev-140826-authRole",
-      "UnauthRoleArn": "arn:aws:iam::362618413372:role/amplify-githublinks-dev-140826-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::362618413372:role/amplify-githublinks-dev-140826-authRole",
+      "AuthRoleName": "amplify-githubcrazylinks-dev-141318-authRole",
+      "UnauthRoleArn": "arn:aws:iam::362618413372:role/amplify-githubcrazylinks-dev-141318-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::362618413372:role/amplify-githubcrazylinks-dev-141318-authRole",
       "Region": "ap-southeast-1",
-      "DeploymentBucketName": "amplify-githublinks-dev-140826-deployment",
-      "UnauthRoleName": "amplify-githublinks-dev-140826-unauthRole",
-      "StackName": "amplify-githublinks-dev-140826",
-      "StackId": "arn:aws:cloudformation:ap-southeast-1:362618413372:stack/amplify-githublinks-dev-140826/24fb4cb0-1080-11ec-916f-0635df535330",
-      "AmplifyAppId": "drsa7tsxjlzsr"
+      "DeploymentBucketName": "amplify-githubcrazylinks-dev-141318-deployment",
+      "UnauthRoleName": "amplify-githubcrazylinks-dev-141318-unauthRole",
+      "StackName": "amplify-githubcrazylinks-dev-141318",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:362618413372:stack/amplify-githubcrazylinks-dev-141318/296a3e70-1213-11ec-8496-068bdc3a7ec0",
+      "AmplifyAppId": "d2w7nc3tr5aeo6"
+    },
+    "categories": {
+      "function": {
+        "repoFunction": {
+          "deploymentBucketName": "amplify-githubcrazylinks-dev-141318-deployment",
+          "s3Key": "amplify-builds/repoFunction-78536d4479716c2f4365-build.zip"
+        }
+      }
     }
   }
 }
