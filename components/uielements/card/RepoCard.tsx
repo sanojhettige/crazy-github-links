@@ -40,16 +40,16 @@ const RepoCard = (props: PropsWithChildren<Props>) => {
     const contributors = props.data?.contributors.slice(0, 10);
 
   return (
-<div className="min-h-screen flex items-center justify-center bg-primary-500 px-4">
+<div className="min-h-screen flex items-center justify-center px-4">
     <div className={`max-w-4xl min-h-screen bg-${props.type || 'white'}-500 rounded-lg shadow-xl`}>
         <div className="flex w-full">
             {props.showLogo && (
-                <div className="w-3/12 p-4">
+                <div className="w-2/12 p-4">
                     <Avatar rounded image={props.data?.owner?.avatar_url} />
                 </div>
             )}
         
-        <div className={(props.showLogo && props.showStartButton)? 'w-6/12 p-4' : ((!props.showLogo && props.showStartButton) || (props.showLogo && !props.showStartButton)) ? 'w-9/12 p-4' : 'w-full p-4'}>
+        <div className={(props.showLogo && props.showStartButton)? 'w-7/12 p-4' : ((!props.showLogo && props.showStartButton) || (props.showLogo && !props.showStartButton)) ? 'w-9/12 p-4' : 'w-full p-4'}>
             <h2 className="text-3xl uppercase text-white">
                 {props.data?.name}
             </h2>
@@ -59,7 +59,10 @@ const RepoCard = (props: PropsWithChildren<Props>) => {
         </div>
         {props.showStartButton && (
             <div className="w-3/12 p-4">
-                <Button onClick={props.handleOnStarRepository} prefixIcon={props.icon} size="small" variant="outlined" type="white"> Star this Repo </Button>
+                <div className="flex justify-center rounded-lg text-lg mb-4" role="group">
+                    <Button className="rounded-r-none" onClick={props.handleOnStarRepository} prefixIcon={props.icon} size="small" variant="outlined" type="white"> Star this Repo </Button>
+                    <Button className="rounded-l-none" size="small" variant="outlined" type="white"> {props.data?.stargazers_count} </Button>
+                    </div>
             </div>
         )}
         </div>

@@ -29,13 +29,14 @@ const Button = React.forwardRef(
       fullwith,
       disabled,
       onClick,
+      className,
       ...otherProps
     } : Props,
     ref
   ) => {
 
     return (
-      <button disabled={disabled} onClick={onClick} className={`shadow bg-${type}-500 bg-${type} hover:bg-${type}-400 ${type === 'primary' ? 'text-gray-100' : type === 'secondary' ? 'text-white-100' : 'text-gray-900'} uppercase focus:shadow-outline focus:outline-none ${size === 'large' ? 'h-14 pr-6 pl-6 text-lg' : size === 'medium' ? 'h-10 pr-5 pl-5 text-md' : 'h-8 pr-4 pl-4 text-xs'} ${rounded && 'rounded'} ${fullwith && 'w-full'}`} type="button" {...otherProps}>
+      <button disabled={disabled} onClick={onClick} className={`shadow bg-${type}-500 bg-${type} hover:bg-${type}-400 ${type === 'primary' ? 'text-gray-100' : type === 'secondary' ? 'text-white-100' : 'text-gray-900'} uppercase focus:shadow-outline focus:outline-none ${size === 'large' ? 'h-14 pr-6 pl-6 text-lg' : size === 'medium' ? 'h-10 pr-5 pl-5 text-md' : 'h-8 pr-4 pl-4 text-xs'} ${rounded && 'rounded'} ${fullwith && 'w-full'} ${className}`} type="button" {...otherProps}>
         <div className="flex items-center">
         {prefixIcon && (<Iconography size={size} icon={prefixIcon} />)}
         <span className="text-center pl-2 w-full whitespace-nowrap">{children}</span>
