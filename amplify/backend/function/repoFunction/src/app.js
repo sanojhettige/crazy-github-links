@@ -91,6 +91,7 @@ app.post('/repos', function(req, res) {
       author_name: req.body.author_name,
       theme_id: req.body.theme_id,
       icon_id: req.body.icon_id,
+      avatar_url: req.body.avatar_url,
       created_at: datetime,
       status_id: 0
     }
