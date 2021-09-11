@@ -19,8 +19,8 @@
   "privacy": {
     "auth": 0,
     "unauth": 0,
-    "authRoleName": "amplify-githubcrazylinks-dev-192123-authRole",
-    "unAuthRoleName": "amplify-githubcrazylinks-dev-192123-unauthRole"
+    "authRoleName": "amplify-githubcrazylinks-dev-203323-authRole",
+    "unAuthRoleName": "amplify-githubcrazylinks-dev-203323-unauthRole"
   },
   "dependsOn": [
     {

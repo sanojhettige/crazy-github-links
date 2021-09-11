@@ -16,17 +16,17 @@
     "s3Key": {
       "Type": "String"
     },
-    "storagegitlinkstableName": {
+    "storagecrazylinkstableName": {
       "Type": "String",
-      "Default": "storagegitlinkstableName"
+      "Default": "storagecrazylinkstableName"
     },
-    "storagegitlinkstableArn": {
+    "storagecrazylinkstableArn": {
       "Type": "String",
-      "Default": "storagegitlinkstableArn"
+      "Default": "storagecrazylinkstableArn"
     },
-    "storagegitlinkstableStreamArn": {
+    "storagecrazylinkstableStreamArn": {
       "Type": "String",
-      "Default": "storagegitlinkstableStreamArn"
+      "Default": "storagecrazylinkstableStreamArn"
     }
   },
   "Conditions": {
@@ -82,14 +82,14 @@
             "REGION": {
               "Ref": "AWS::Region"
             },
-            "STORAGE_GITLINKSTABLE_NAME": {
-              "Ref": "storagegitlinkstableName"
+            "STORAGE_CRAZYLINKSTABLE_NAME": {
+              "Ref": "storagecrazylinkstableName"
             },
-            "STORAGE_GITLINKSTABLE_ARN": {
-              "Ref": "storagegitlinkstableArn"
+            "STORAGE_CRAZYLINKSTABLE_ARN": {
+              "Ref": "storagecrazylinkstableArn"
             },
-            "STORAGE_GITLINKSTABLE_STREAMARN": {
-              "Ref": "storagegitlinkstableStreamArn"
+            "STORAGE_CRAZYLINKSTABLE_STREAMARN": {
+              "Ref": "storagecrazylinkstableStreamArn"
             }
           }
         },
@@ -110,12 +110,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "githubcrazylinksLambdaRole31aa9868",
+            "githubcrazylinksLambdaRole84efd3a6",
             {
               "Fn::Join": [
                 "",
                 [
-                  "githubcrazylinksLambdaRole31aa9868",
+                  "githubcrazylinksLambdaRole84efd3a6",
                   "-",
                   {
                     "Ref": "env"
@@ -218,14 +218,14 @@
               ],
               "Resource": [
                 {
-                  "Ref": "storagegitlinkstableArn"
+                  "Ref": "storagecrazylinkstableArn"
                 },
                 {
                   "Fn::Join": [
                     "/",
                     [
                       {
-                        "Ref": "storagegitlinkstableArn"
+                        "Ref": "storagecrazylinkstableArn"
                       },
                       "index/*"
                     ]

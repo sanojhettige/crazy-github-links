@@ -1,21 +1,21 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-githubcrazylinks-dev-192123-authRole",
-      "UnauthRoleArn": "arn:aws:iam::362618413372:role/amplify-githubcrazylinks-dev-192123-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::362618413372:role/amplify-githubcrazylinks-dev-192123-authRole",
+      "AuthRoleName": "amplify-githubcrazylinks-dev-203323-authRole",
+      "UnauthRoleArn": "arn:aws:iam::362618413372:role/amplify-githubcrazylinks-dev-203323-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::362618413372:role/amplify-githubcrazylinks-dev-203323-authRole",
       "Region": "ap-southeast-1",
-      "DeploymentBucketName": "amplify-githubcrazylinks-dev-192123-deployment",
-      "UnauthRoleName": "amplify-githubcrazylinks-dev-192123-unauthRole",
-      "StackName": "amplify-githubcrazylinks-dev-192123",
-      "StackId": "arn:aws:cloudformation:ap-southeast-1:362618413372:stack/amplify-githubcrazylinks-dev-192123/5e7e5840-1307-11ec-ab12-02977cf0f3ac",
-      "AmplifyAppId": "d1ksjax74bnl6e"
+      "DeploymentBucketName": "amplify-githubcrazylinks-dev-203323-deployment",
+      "UnauthRoleName": "amplify-githubcrazylinks-dev-203323-unauthRole",
+      "StackName": "amplify-githubcrazylinks-dev-203323",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:362618413372:stack/amplify-githubcrazylinks-dev-203323/6c2e2ce0-1311-11ec-a285-02e167396ebe",
+      "AmplifyAppId": "d2o83ai5qs9x41"
     },
     "categories": {
       "function": {
         "reposFunction": {
-          "deploymentBucketName": "amplify-githubcrazylinks-dev-192123-deployment",
-          "s3Key": "amplify-builds/reposFunction-6c5950344d414d507733-build.zip"
+          "deploymentBucketName": "amplify-githubcrazylinks-dev-203323-deployment",
+          "s3Key": "amplify-builds/reposFunction-73656f68724a64483944-build.zip"
         }
       }
     }

@@ -1,7 +1,7 @@
 {
   "permissions": {
     "storage": {
-      "gitlinkstable": [
+      "crazylinkstable": [
         "create",
         "read",
         "update"
