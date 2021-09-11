@@ -16,17 +16,17 @@
     "s3Key": {
       "Type": "String"
     },
-    "storagegithublinksName": {
+    "storagegitlinkstableName": {
       "Type": "String",
-      "Default": "storagegithublinksName"
+      "Default": "storagegitlinkstableName"
     },
-    "storagegithublinksArn": {
+    "storagegitlinkstableArn": {
       "Type": "String",
-      "Default": "storagegithublinksArn"
+      "Default": "storagegitlinkstableArn"
     },
-    "storagegithublinksStreamArn": {
+    "storagegitlinkstableStreamArn": {
       "Type": "String",
-      "Default": "storagegithublinksStreamArn"
+      "Default": "storagegitlinkstableStreamArn"
     }
   },
   "Conditions": {
@@ -59,12 +59,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "repoFunction",
+            "reposFunction",
             {
               "Fn::Join": [
                 "",
                 [
-                  "repoFunction",
+                  "reposFunction",
                   "-",
                   {
                     "Ref": "env"
@@ -82,14 +82,14 @@
             "REGION": {
               "Ref": "AWS::Region"
             },
-            "STORAGE_GITHUBLINKS_NAME": {
-              "Ref": "storagegithublinksName"
+            "STORAGE_GITLINKSTABLE_NAME": {
+              "Ref": "storagegitlinkstableName"
             },
-            "STORAGE_GITHUBLINKS_ARN": {
-              "Ref": "storagegithublinksArn"
+            "STORAGE_GITLINKSTABLE_ARN": {
+              "Ref": "storagegitlinkstableArn"
             },
-            "STORAGE_GITHUBLINKS_STREAMARN": {
-              "Ref": "storagegithublinksStreamArn"
+            "STORAGE_GITLINKSTABLE_STREAMARN": {
+              "Ref": "storagegitlinkstableStreamArn"
             }
           }
         },
@@ -110,12 +110,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "githubcrazylinksLambdaRole9acbaee6",
+            "githubcrazylinksLambdaRole31aa9868",
             {
               "Fn::Join": [
                 "",
                 [
-                  "githubcrazylinksLambdaRole9acbaee6",
+                  "githubcrazylinksLambdaRole31aa9868",
                   "-",
                   {
                     "Ref": "env"
@@ -218,14 +218,14 @@
               ],
               "Resource": [
                 {
-                  "Ref": "storagegithublinksArn"
+                  "Ref": "storagegitlinkstableArn"
                 },
                 {
                   "Fn::Join": [
                     "/",
                     [
                       {
-                        "Ref": "storagegithublinksArn"
+                        "Ref": "storagegitlinkstableArn"
                       },
                       "index/*"
                     ]

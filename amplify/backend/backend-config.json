@@ -1,19 +1,19 @@
 {
   "storage": {
-    "githublinks": {
+    "gitlinkstable": {
       "service": "DynamoDB",
       "providerPlugin": "awscloudformation"
     }
   },
   "function": {
-    "repoFunction": {
+    "reposFunction": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda",
       "dependsOn": [
         {
           "category": "storage",
-          "resourceName": "githublinks",
+          "resourceName": "gitlinkstable",
           "attributes": [
             "Name",
             "Arn",
@@ -30,7 +30,7 @@
       "dependsOn": [
         {
           "category": "function",
-          "resourceName": "repoFunction",
+          "resourceName": "reposFunction",
           "attributes": [
             "Name",
             "Arn"

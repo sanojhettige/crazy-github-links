@@ -8,15 +8,15 @@
         },
     
     
-          "functionrepoFunctionName": {
+          "functionreposFunctionName": {
             "Type": "String",
-            "Default": "functionrepoFunctionName"
+            "Default": "functionreposFunctionName"
           },
 
           
-          "functionrepoFunctionArn": {
+          "functionreposFunctionArn": {
             "Type": "String",
-            "Default": "functionrepoFunctionArn"
+            "Default": "functionreposFunctionArn"
           }
 
           
@@ -168,7 +168,7 @@
                             
                             {
 
-                                "Ref": "functionrepoFunctionArn"
+                                "Ref": "functionreposFunctionArn"
                             },
                             
                             "/invocations"
@@ -267,7 +267,7 @@
                           
                           {
 
-                            "Ref": "functionrepoFunctionArn"
+                            "Ref": "functionreposFunctionArn"
                           },
                           
                           "/invocations"
@@ -324,12 +324,12 @@
       
         
 
-        "functionrepoFunctionPermissionreposApi": {
+        "functionreposFunctionPermissionreposApi": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
                 "FunctionName": 
                     {
-                        "Ref":  "functionrepoFunctionName"
+                        "Ref":  "functionreposFunctionName"
                     },
                     
                     "Action": "lambda:InvokeFunction",

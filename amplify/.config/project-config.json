@@ -5,10 +5,10 @@
   "javascript": {
     "framework": "react",
     "config": {
-      "SourceDir": "pages",
+      "SourceDir": "src",
       "DistributionDir": "build",
       "BuildCommand": "yarn build",
-      "StartCommand": "yan start"
+      "StartCommand": "yarn start"
     }
   },
   "providers": [

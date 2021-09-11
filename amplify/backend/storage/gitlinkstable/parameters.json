@@ -1,5 +1,5 @@
 {
-    "tableName": "crazyrepos",
+    "tableName": "gitlinkstable",
     "partitionKeyName": "id",
     "partitionKeyType": "S"
 }

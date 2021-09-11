@@ -2,7 +2,7 @@
   "paths": [
     {
       "name": "/repos",
-      "lambdaFunction": "repoFunction",
+      "lambdaFunction": "reposFunction",
       "privacy": {
         "open": true
       },
@@ -13,19 +13,19 @@
   "apiName": "reposApi",
   "functionArns": [
     {
-      "lambdaFunction": "repoFunction"
+      "lambdaFunction": "reposFunction"
     }
   ],
   "privacy": {
     "auth": 0,
     "unauth": 0,
-    "authRoleName": "amplify-githubcrazylinks-dev-141318-authRole",
-    "unAuthRoleName": "amplify-githubcrazylinks-dev-141318-unauthRole"
+    "authRoleName": "amplify-githubcrazylinks-dev-192123-authRole",
+    "unAuthRoleName": "amplify-githubcrazylinks-dev-192123-unauthRole"
   },
   "dependsOn": [
     {
       "category": "function",
-      "resourceName": "repoFunction",
+      "resourceName": "reposFunction",
       "attributes": [
         "Name",
         "Arn"
