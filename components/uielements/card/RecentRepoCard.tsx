@@ -7,22 +7,18 @@ interface Props {
     avatar_url: string,
     repo_name: string,
     theme_id: string,
+    size?: number
 }
 
-const RecentRepoCard = (props: PropsWithChildren<Props>) => {
+const RecentRepoCard = ({author_name, avatar_url, repo_name}: Props) => {
   return (
-  <div className="md:px-4 md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 space-y-4 md:space-y-0">
-    <div className="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500">
-      <h3 className="mb-3 text-xl font-bold text-indigo-600">{props.author_name}</h3>
-      <div className="relative">
-          <Avatar className="w-full" image={props.avatar_url} />
-      </div>
-      <h1 className="mt-4 text-gray-800 text-3xl font-bold cursor-pointer">{props.repo_name}</h1>
-      <div className="my-4">
-        <button className="mt-4 text-xl w-full text-white bg-indigo-600 py-1.5 rounded-xl shadow-lg">Watch Repo</button>
-      </div>
+    <div className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl hover:scale-105 duration-500 transform transition cursor-pointer`}>
+    <Avatar className="w-full" image={avatar_url} />
+    <div className="p-5">
+      <h1 className="text-2xl font-bold">{repo_name}</h1>
+      <p className="mt-2 text-lg font-semibold text-gray-600">by {author_name}</p>
     </div>
-    </div>
+  </div>
   )
 }
 

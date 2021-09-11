@@ -14,6 +14,7 @@ interface Props {
   id?: string,
   disabled?: boolean,
   className?: string,
+  isLoading?: boolean,
 }
 
 const Button = React.forwardRef(
@@ -30,15 +31,16 @@ const Button = React.forwardRef(
       disabled,
       onClick,
       className,
+      isLoading = false,
       ...otherProps
     } : Props,
     ref
   ) => {
 
     return (
-      <button disabled={disabled} onClick={onClick} className={`shadow bg-${type}-500 bg-${type} hover:bg-${type}-400 ${type === 'primary' ? 'text-gray-100' : type === 'secondary' ? 'text-white-100' : 'text-gray-900'} uppercase focus:shadow-outline focus:outline-none ${size === 'large' ? 'h-14 pr-6 pl-6 text-lg' : size === 'medium' ? 'h-10 pr-5 pl-5 text-md' : 'h-8 pr-4 pl-4 text-xs'} ${rounded && 'rounded'} ${fullwith && 'w-full'} ${className}`} type="button" {...otherProps}>
+      <button disabled={disabled} onClick={onClick} className={`shadow ${type === 'primary' ? 'text-gray-100 bg-primary-500 hover:bg-primary-400 ' : type === 'secondary' ? 'text-white-100 bg-secondary-500 hover:bg-secondary-400 ' : type === 'transparent' ? 'transparent text-gray-900' : 'bg-white text-gray-900'} uppercase focus:shadow-outline focus:outline-none ${size === 'large' ? 'h-14 pr-6 pl-6 text-lg' : size === 'medium' ? 'h-10 pr-5 pl-5 text-md' : 'h-8 pr-4 pl-4 text-xs'} ${rounded && 'rounded'} ${fullwith && 'w-full'} ${className}`} type="button" {...otherProps}>
         <div className="flex items-center">
-        {prefixIcon && (<Iconography size={size} icon={prefixIcon} />)}
+        {(prefixIcon || isLoading) && (<Iconography className={isLoading && `animate-spin`} size={size} icon={isLoading ? 'spinner' : prefixIcon} />)}
         <span className="text-center pl-2 w-full whitespace-nowrap">{children}</span>
         {suffixIcon && (<Iconography size={size} icon={prefixIcon} />)}
         </div>

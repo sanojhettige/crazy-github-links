@@ -7,12 +7,12 @@ function Navbar(props: Props): ReactElement {
     const [navbarOpen, setNavbarOpen] = useState(false);
     return (
         <nav
-        className="relative bg-primary-500 h-20 shadow-lg flex flex-wrap items-center justify-between px-2 py-3"
+        className="bg-primary-500 h-20 shadow-lg flex flex-wrap items-center justify-between px-2 py-3"
       >
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <a
-              className="text-white text-3xl pointer-events-none title-lg font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
+              className="text-white text-3xl  title-lg font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
               href="/"
             >
               Github Crazy Links

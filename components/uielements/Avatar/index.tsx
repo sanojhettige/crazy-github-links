@@ -19,7 +19,7 @@ interface Props {
   } : Props,) => {
   return (
     <div className="w-full">
-        <img className={`inline-block h-20 w-20 ${rounded && 'rounded-full'} ring-2 ${!isTransparent && 'ring-white bg-white'}`} src={image} {...otherProps}/>
+        <img className={`inline-block sm:h-15 sm:w-15 md-h-20 md:w-20 lg:h-20 lg:w-20 ${rounded && 'rounded-full'} ring-2 ${!isTransparent && 'ring-white bg-white'}`} src={image} {...otherProps}/>
         </div>
   )
   }
