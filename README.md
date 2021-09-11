@@ -1,4 +1,4 @@
-# superchat-frontend-challenge
+# Superchat Frontend Challenge
 
 
 This application help developers to create custom cards for their github repositories and share over different medias.
@@ -17,8 +17,10 @@ AWS cli
 How to install and run the app
 
 run git clone https://github.com/sanojhettige/superchat-frontend-challenge
-yarn
-yarn dev
+
+run yarn
+
+run yarn dev
 
 View it on http://localhost:3000
 
