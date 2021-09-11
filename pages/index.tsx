@@ -1,18 +1,16 @@
 import Router from "next/router";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { toast } from 'react-toastify';
 import Layout from '../components/layout';
-import { getRepository, getContributors, getRecentRepos, createRepo } from '../services/github';
+import { getRepository, getContributors, createRepo } from '../services/github';
 import TextField from "../components/uielements/inputs/textField";
 import Button from "../components/uielements/button";
-import { RecentRepoCard } from '../components/uielements/card';
-
+import Loader from "../components/uielements/Loader";
 
 export default function HomePage() {
-  const [username, setUsername] = useState('aws-amplify');
-  const [repoName, setRepoName] = useState('amplify-cli');
+  const [username, setUsername] = useState('');
+  const [repoName, setRepoName] = useState('');
   const [isFetching, setIsFetching] = useState(false);
-  const [repos, setRepos] = useState([]);
 
   // update username state
   const onChangeUsername = e => {
@@ -26,10 +24,27 @@ export default function HomePage() {
     setRepoName(value);
   }
 
+  const validateFields = () => {
+    if (!username || !repoName) {
+      toast('Enter github username and repositoy name!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        type: 'error'
+        });
+      return false;
+    }
+  }
+
   // fetch data from git api
   const getRepositoryData = async () => {
     const defaultTheme = 'primary';
     const defaultIcon = 'star';
+    validateFields();
     if (!isFetching && username && repoName) {
       setIsFetching(true);
       const promiseData = await Promise.all([getRepository(username, repoName), await getContributors(username, repoName)]);
@@ -65,22 +80,14 @@ export default function HomePage() {
           progress: undefined,
           type: 'error'
           });
+          setIsFetching(false);
       }
     }
   }
 
-  const getRepos = async() => {
-    const repos = await getRecentRepos();
-    setRepos(repos?.data || []);
-  }
-
-  useEffect(() => {
-    getRepos();
-  }, [])
-
   return (
     <Layout title="Home | Github Crazy Links">
-
+      <Loader>
 <div className="relative pt-16 pb-32 flex content-center bg-primary-500 items-center justify-center"
   style={{
     minHeight: "80vh"
@@ -93,7 +100,7 @@ export default function HomePage() {
             Create amazling sharable links to your Github repositories
               </h1>
           <p className="mt-4 text-lg text-gray-300">
-            some content
+            some content here
           </p>
         </div>
       </div>
@@ -112,7 +119,7 @@ export default function HomePage() {
 
   <div className="md:flex md:items-center">
     <div className="w-full">
-      <Button disabled={isFetching} onClick={getRepositoryData} type="secondary" fullwith>{isFetching ? 'Fetching Repository...' : 'Find Repo'}</Button>
+      <Button disabled={isFetching} isLoading={isFetching} onClick={getRepositoryData} type="secondary" fullwith={true}>Find Repo</Button>
     </div>
   </div>
         </div>
@@ -120,10 +127,7 @@ export default function HomePage() {
     </div>
   </div>
 </div>
-{/* <div className="min-h-screen bg-white-500 from-red-300 to-yellow-200 flex justify-center items-center py-20">
-  {repos?.map(item => <RecentRepoCard {...item} />)}
-  </div> */}
-   
+</Loader>
   </Layout>
   );
 }

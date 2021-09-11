@@ -1,10 +1,11 @@
 import type { NextPage } from 'next';
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { toast } from 'react-toastify';
 import { useEffect, useState } from 'react';
 import Layout from '../../components/layout';
 import { RepoCard } from '../../components/uielements/card';
 import { getRepoById, getRepository, getContributors, updateRepo, startRepository } from '../../services/github';
+import Loader from '../../components/uielements/Loader';
 
 const RepoView: NextPage = () => {
   const router = useRouter()
@@ -58,9 +59,11 @@ const RepoView: NextPage = () => {
 
   return (
     <Layout title="Home | Github Crazy Links">
-        <div className="bg-white-500 p-2 content-center items-center justify-center">
+      <Loader isLoading={!repo}>
+        <div className="relative container top-0 relative mx-auto pt-2 pb-2 content-center items-center justify-center">
         <RepoCard type={color} icon={icon} data={repo} showLogo showContributors showStartButton handleOnStarRepository={handleOnStarRepository} />
         </div>
+        </Loader>
     </Layout>
   )
 }

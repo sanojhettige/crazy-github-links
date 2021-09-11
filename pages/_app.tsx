@@ -2,7 +2,7 @@ import { AppProps } from 'next/app';
 import { ToastContainer } from 'react-toastify';
 import Amplify from 'aws-amplify';
 import 'tailwindcss/tailwind.css';
-import "../assets/css/theme.css";
+import "../public/tailwind.css";
 import 'react-toastify/dist/ReactToastify.css';
 import awsConfig from '../aws-exports';
 

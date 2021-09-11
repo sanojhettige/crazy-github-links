@@ -9,3 +9,7 @@
     --color-sunset-orange: #f44336;
     --color-bubbles: #e0f7fa;
   }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { useEffect, useState, useRef } from 'react';
+import { toast } from 'react-toastify';
 import Layout from '../../../components/layout';
 import { RepoCard } from '../../../components/uielements/card';
 import Button from '../../../components/uielements/button';
@@ -12,21 +13,32 @@ import TextField from '../../../components/uielements/inputs/textField';
 const Repo: NextPage = () => {
   const router = useRouter()
   const { repoId } = router.query
+  const element = useRef();
 
   const [color, setColor] = useState('primary');
   const [icon, setIcon] = useState('start');
   const [repo, setRepo] = useState(null);
   const [isGenerated, setIsGenerated] = useState(false);
   const [repoUrl, setRepoUrl] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   // set color state
-  const onColorChange = value => setColor(value);
+  const onColorChange = value => {
+    setColor(value);
+    setIsGenerated(false);
+    setRepoUrl(null);
+  }
 
   // set icon state
-  const onIconChange = value => setIcon(value);
+  const onIconChange = value => {
+    setIcon(value);
+    setIsGenerated(false);
+    setRepoUrl(null);
+  }
 
   // get repo details if not available in localstorage
   const getRepoDetails = async() => {
+    setIsLoading(true);
     const repoData = await getRepoById(repoId);
     if (repoData.data) {
       const { data: { author_name, repo_name, theme_id, icon_id }} = repoData;
@@ -47,6 +59,8 @@ const Repo: NextPage = () => {
   }
 
   const generateRepoLink = async() => {
+    setIsLoading(true);
+    setIsGenerated(false);
     const resp = await updateRepo({
       id: repoId,
       theme_id: color,
@@ -57,8 +71,8 @@ const Repo: NextPage = () => {
 
     updateLocalStorageTheme(repoObj, resp.data);
     setIsGenerated(true);
-    console.log({router});
     setRepoUrl(`${getLocationOrigin()}/repo/${repoId}`);
+    setIsLoading(false);
   }
 
   const updateLocalStorageTheme = (repoObj, crazydata) => {
@@ -66,8 +80,33 @@ const Repo: NextPage = () => {
     window.localStorage.setItem('repo', JSON.stringify(repoObj));
   }
 
+  // This is the function we wrote earlier
+  async function copyURLToClipboard(text) {
+    if ('clipboard' in navigator) {
+      return await navigator.clipboard.writeText(text);
+    } else {
+      return document.execCommand('copy', true, text);
+    }
+  }
+
   const onCopyToClipBoard = e => {
-    
+    // Asynchronously call copyTextToClipboard
+    copyURLToClipboard(repoUrl)
+      .then(() => {
+        toast('URL copied to your clipboard \n Now you can post this anywhere', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          type: 'success'
+          });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   useEffect(() => {
@@ -106,12 +145,13 @@ const Repo: NextPage = () => {
           <Dropdown size="medium" id="icon-selector" value={icon} onChange={onIconChange} options={[
                 { id: 'star', title: <Iconography icon="start" />},
                 { id: 'heart', title: <Iconography icon="heart" />},
-                { id: 'eye', title: <Iconography icon="eye" />}
+                { id: 'eye', title: <Iconography icon="eye" />},
+                { id: 'bookmark', title: <Iconography icon="bookmark" />}
               ]} />
               </div>
           </div>
           <div className="w-full md:w-1/5 px-3 mb-6 md:mb-0">
-          <Button type="white" size="medium" onClick={generateRepoLink}>
+          <Button type="white" size="medium" onClick={generateRepoLink} isLoading={isLoading}>
             Generate Link
             </Button>
             </div>
@@ -120,15 +160,16 @@ const Repo: NextPage = () => {
         {isGenerated && (
         <div className="relative pt-2 pb-2 content-center items-center justify-center">
         <div className="flex justify-center">
-        <div className="animate-bounce w-2/3 flex justify-center rounded-lg text-lg mb-4" role="group">
+        <div className="animate-bounce z-0 w-2/3 flex justify-center rounded-lg text-lg mb-4" role="group">
           <TextField className="rounded-r-none pointer-events-none" value={repoUrl} onChange={() => {}} fullwith />
           <Button onClick={onCopyToClipBoard} className="rounded-l-none" size="medium" variant="outlined" type="white"> Copy </Button>
           </div>
         </div>
         </div>
         )}
-        <div className="bg-white-500 p-2 content-center items-center justify-center">
-        <RepoCard type={color} icon={icon} data={repo} showLogo showContributors showStartButton />
+        
+        <div className="relative container top-0 relative mx-auto pt-2 pb-2 content-center items-center justify-center">
+        <RepoCard ref={element} type={color} icon={icon} data={repo} showLogo showContributors showStartButton />
         </div>
     </Layout>
   )
