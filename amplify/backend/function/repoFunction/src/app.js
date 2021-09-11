@@ -42,21 +42,23 @@ function id () {
 
 const datetime = new Date().toISOString();
 
-
-/**********************
- * Example get method *
- **********************/
+const getRecentReposArray = data => {
+  return data?.slice(-20)
+}
 
 app.get('/repos', function(req, res) {
   let params = {
     TableName: tableName,
-    limit: 20
+    Key: {
+      status_id: 1
+    }
   }
   dynamodb.scan(params, (error, result) => {
     if (error) {
       res.json({ statusCode: 500, error: error.message });
     } else {
-      res.json({ statusCode: 200, url: req.url, data: result.Items })
+      const items = getRecentReposArray(result.Items);
+      res.json({ statusCode: 200, url: req.url, data: items })
     }
   });
 });
@@ -76,10 +78,6 @@ app.get('/repos/:id', function(req, res) {
     }
   });
 });
-
-/****************************
-* Example post method *
-****************************/
 
 app.post('/repos', function(req, res) {
   const recordId = id();
@@ -102,10 +100,6 @@ app.post('/repos', function(req, res) {
     else res.json({ statusCode: 200, id: recordId })
   })
 });
-
-/****************************
-* Example put method *
-****************************/
 
 app.put('/repos/:id', function(req, res) {
   var params = {

@@ -15,7 +15,7 @@
       "function": {
         "repoFunction": {
           "deploymentBucketName": "amplify-githubcrazylinks-dev-141318-deployment",
-          "s3Key": "amplify-builds/repoFunction-6d5a386d48772f6d516e-build.zip"
+          "s3Key": "amplify-builds/repoFunction-303277777434336e4148-build.zip"
         }
       }
     }
