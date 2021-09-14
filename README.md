@@ -1,4 +1,4 @@
-# Superchat Frontend Challenge
+# GitHub Crazy Links
 
 
 This application help developers to create custom cards for their github repositories and share over different medias.
